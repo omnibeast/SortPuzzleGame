@@ -5,17 +5,33 @@ using namespace std;
 
 class Vial {
 private:
-    static const int SIZE = 4; // Maximum number of items in a vial
-    char contents[SIZE];       // Array to store vial contents (characters)
+    
+    char contents[4];       // Array to store vial contents (characters)
     int filled;                // Number of filled slots in the vial
     int label;                 // Label for identifying the vial
 public:
+     static const int SIZE = 4;  // Maximum size
+     
+    // Constructors
     Vial();
-    Vial(const char arr[], int size, int filled); // Constructor from array
-    Vial(char c1, char c2, char c3, char c4, int filled); // Constructor from 4 chars
-    bool add(char content); // Add a character to the vial  
-    void display() const;  // Display the vial's contents
-    bool isComplete() const; // Check if all contents are the same and vial is full
-    void setLabel(int label); // Set the vial's label
-    bool transfer(Vial& destination); // Transfer top item to another vial
+    Vial(char arr[], int size, int filledAmount);
+    Vial(char c1, char c2, char c3, char c4, int filledAmount);
+
+    // Adds a character to top of vial
+    bool add(char content);
+
+    // Displays vial on screen
+    void display() const;
+
+    // Checks if vial is complete (all same character)
+    bool isComplete() const;
+
+    // Sets label number
+    void setLabel(int newLabel);
+
+    // Transfers top element to another vial
+    bool transfer(Vial& destination);
+
+    // Helper function
+    int getFilled() const;
 };
